@@ -19,13 +19,13 @@ int main() {
 	int* parsed;
 	int parsedSize;
 
-  //taking in user input
+  	//taking in user input
 	cout << endl << "Enter 1 for console input, 2 for file input: " << endl;
 	cin >> num;
 	cin.clear();
 	cin.ignore(1000000, '\n');
 
-  //console input
+  	//console input
 	if (num == 1) {
 		cout << endl << "Enter numbers with spaces in between:  " << endl;
 		cin.get(input, 1000);
@@ -33,7 +33,7 @@ int main() {
 		cin.ignore(1000000, '\n');
 	}
 
-  //file input
+  	//file input
 	else if (num == 2) {
 		cout << endl << "Enter file name: " << endl;
 		cin.get(fileName, 20);
@@ -87,7 +87,6 @@ void parseIn(int*& parsed, char input[], int &counter) {
 	}
 	char* newArray = new char[strlen(input) - pointers[0]];
 	int j = 0;
-
 	for (int i = pointers[0] + 1; i < strlen(input); i++) {
 		newArray[j] = input[i];
 		j = j + 1;
@@ -109,17 +108,17 @@ void heapify(int*& arr, int n, int i) {
 	int l = 2 * i + 1; 
 	int r = 2 * i + 2; 
 
-  //left is larger than root
+  	//left is larger than root
 	if (l < n && arr[l] > arr[largest]) {
 		largest = l;
 	}
 
-  //right is larger than root
+  	//right is larger than root
 	if (r < n && arr[r] > arr[largest]) {
 		largest = r;
 	}
 
-  //largest is not root
+  	//largest is not root
 	if (largest != i) {
 		swap(arr[i], arr[largest]);
 		heapify(arr, n, largest);
@@ -145,7 +144,7 @@ void visualPrint(int* parsed, int n) {
 	int levels = ceil(log2(n)); 
 	int index = 1;
 
-  //printing out each number
+  	//printing out each number
 	for (int i = 0; i < levels; i++) {
 		int num = index;
 		for (int j = 0; j < num; j++) {
@@ -156,7 +155,7 @@ void visualPrint(int* parsed, int n) {
 		}
 		cout << endl;
     
-    //adding lines between parent and child
+    		//adding lines between parent and child
 		if (i < levels - 1) {
 			for (int k = 0; k < pow(2, i); k++) {
 				cout << "/\\";
