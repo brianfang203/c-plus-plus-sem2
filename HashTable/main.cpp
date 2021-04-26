@@ -29,16 +29,16 @@ int main() {
 	student** list = new student*[100];
 	int size = 100;
 
-  //while keep running
+  	//while keep running
 	while (run) {
 
-    //asking for user input
+    		//asking for user input
 		cout << endl << "Would you like to ADD, ADDRAND, DELETE, PRINT, or QUIT: " << endl;
 		cin.get(input, 10);
 		cin.clear();
 		cin.ignore(10000, '\n');
 
-    //adding student
+    		//adding student
 		if (strcmp(input, "ADD") == 0) {  
 			student* newStudent = new student();
 			newStudent->next = NULL;
@@ -94,7 +94,7 @@ int main() {
 			}
 		}
 
-    //deleting student
+    		//deleting student
 		else if (strcmp(input, "DELETE") == 0) { 
 			cout << "Enter the ID of the student to delete: ";
 			int in;
@@ -104,12 +104,12 @@ int main() {
 			DELETE(list, in, size);
 		}
 
-    //printing students
+    		//printing students
 		else if (strcmp(input, "PRINT") == 0) {  
 			PRINT(list, size);
 		}
 
-    //adding random students
+    		//adding random students
 		else if (strcmp(input, "ADDRAND") == 0) {  
 			int num;
 			char** namef = new char*[20];
@@ -183,7 +183,7 @@ int main() {
 			}
 		}
 
-    //quitting program
+    		//quitting program
 		else if (strcmp(input, "QUIT") == 0) {
 			cout << endl << "Quitting" << endl;
 			run = false;
@@ -203,12 +203,12 @@ void ADD(student** list, student* newStudent, int size) {
 	if (list[index] == NULL) {
 		list[index] = newStudent;
 	} 
-  else {
+  	else {
 		if ((list[index])->next == NULL) {
 			(list[index])->next = newStudent;
 			(list[index]->next)->prev = (list[index])->next;
 		} 
-    else {
+    		else {
 			((list[index])->next)->next = newStudent;
 			(((list[index])->next)->next)->prev = ((list[index])->next)->next;
 		}
@@ -259,26 +259,26 @@ void DELETE(student** list, int id, int size) {
 	if (list[i] == NULL) {
 		cout << endl << "Does not exist" << endl;
 	} 
-  else {
+  	else {
 		if (list[i]->id == id) {
 			if (list[i]->next == NULL) {
 				list[i] = NULL; 
 			} 
-      else {
+      			else {
 				student* newcurr = list[i]->next;
 				newcurr->prev = NULL;
 				list[i] = newcurr;
 			}
 		} 
-    else {
+    		else {
 			if (list[i]->next == NULL) {
 				cout << endl << "Does not exist" << endl;
 			} 
-      else {
+      			else {
 				if (list[i]->next->id == id) {
 					list[i]->next = NULL;
 				} 
-        else {
+        			else {
 					cout << "Does not exist" << endl;
 				}
 			}
