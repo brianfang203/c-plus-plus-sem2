@@ -95,7 +95,6 @@ int main() {
 			}
 			int c = 0;
 
-			// SHUNTING YARD
 			while (c < count) {
 				//if number
 				if (precedence(modif[c]) == 0) {  
@@ -106,7 +105,6 @@ int main() {
 					if (top != NULL) {
 						while (precedence(top->getData()) >= precedence(modif[c]) &&
 								*top->getData() != '(') {
-							//pop from stack and enqueue on output queue
 							enqueue(front, rear, top->getData());
 							pop(top);
 							if (top == NULL){
@@ -221,7 +219,7 @@ bool isempty(Node* top) {
 	if (top == NULL) {
 		return true;
 	} 
-  else {
+  	else {
 		return false;
 	}
 }
@@ -239,7 +237,7 @@ void pop(Node* &top) {
 	if (isempty(top)) {
 		cout << "Empty" << endl;
 	} 
-  else {
+  	else {
 		Node* ptr = top;
 		top = top->getNext();
 		ptr->setNext(NULL);
