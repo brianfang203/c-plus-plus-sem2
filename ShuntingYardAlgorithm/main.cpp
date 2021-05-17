@@ -101,7 +101,7 @@ int main() {
 					enqueue(front, rear, modif[c]);
 				}
 				//if operator
-				if (precedence(modif[c]) == 1 || precedence(modif[c]) == 2 || precedence(modif[c]) == 3) {
+				if (precedence(modif[c]) == 1 || precedence(modif[c]) == 2) {
 					if (top != NULL) {
 						while (precedence(top->getData()) >= precedence(modif[c]) &&
 								*top->getData() != '(') {
@@ -112,6 +112,11 @@ int main() {
 							} 
 						}
 					}
+					push(top, modif[c]);
+				}
+
+        //if exponent
+        if (*modif[c] == '^') { 
 					push(top, modif[c]);
 				}
 
@@ -305,8 +310,8 @@ void pushT(Node* &tree, Node* &add) {
 			r->setNext(NULL);
 			add->setNext(tree);
 			tree = add;
-			tree->setLeft(l);
-			tree->setRight(r);
+			tree->setLeft(r);
+			tree->setRight(l);
 		}
 	}
 }
