@@ -1,23 +1,19 @@
 #include <iostream>
+#include <cstring>
+
 #include "node.h"
 
 using namespace std;
 
 Node::Node() {
-  parent = NULL;
+  data = 0;
   left = NULL;
   right = NULL;
 }
 
 Node::~Node() {
-  delete &value;
-  parent = NULL;
   left = NULL;
   right = NULL;
-}
-
-Node* Node::getParent() {
-  return parent;
 }
 
 Node* Node::getLeft() {
@@ -28,22 +24,18 @@ Node* Node::getRight() {
   return right;
 }
 
-int Node::getValue() {
-  return value;
+int Node::getData() {
+  return data;
 }
 
-void Node::setParent(Node* inParent) {
-  parent = inParent;
+void Node::setLeft(Node* newL) {
+  left = newL;
 }
 
-void Node::setLeft(Node* inLeft) {
-  left = inLeft;
+void Node::setRight(Node* newR) {
+  right = newR;
 }
 
-void Node::setRight(Node* inRight) {
-  right = inRight;
-}
-
-void Node::setValue(int inValue) {
-  value = inValue;
+void Node::setData(int newD) {
+  data = newD;
 }
