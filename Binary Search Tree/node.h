@@ -1,7 +1,5 @@
-#ifndef Node_h
-#define Node_h
-
-#include <iostream>
+#ifndef NODE_H
+#define NODE_H
 
 using namespace std;
 
@@ -9,19 +7,15 @@ class Node {
  public:
   Node();
   ~Node();
-  Node* getParent();
   Node* getLeft();
   Node* getRight();
-  int getValue();
-  void setParent(Node*);
+  int getData();
   void setLeft(Node*);
   void setRight(Node*);
-  void setValue(int);
- private:
-  Node* parent;
+  void setData(int);
+ private: 
+  int data;
   Node* left;
   Node* right;
-  int value;
 };
-
 #endif
