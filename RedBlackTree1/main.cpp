@@ -111,7 +111,7 @@ void balance(Node* &head, Node* &curr) {
 		if (parent == grandparent->getLeft()) {
 			Node* uncle = grandparent->getRight();
 
-			//uncle = red, then only recolor
+			//uncle = red, only recolor
 			if (uncle != NULL && uncle->getColor() != 0) {
 				grandparent->setColor(1);
 				parent->setColor(0);
@@ -120,14 +120,14 @@ void balance(Node* &head, Node* &curr) {
 			}
 			else {
 
-				//curr = right child of parent, then rotate left
+				//curr = right child of parent, rotate left
 				if (curr == parent->getRight()) {
 					rotateLeft(head, parent);
 					curr = parent;
 					parent =  curr->getParent();
 				}
 
-				//curr - left child of parent, then rotate right
+				//curr = left child of parent, rotate right
 				rotateRight(head, grandparent);
 
 				//swap colors of parent and grandparent
@@ -142,7 +142,7 @@ void balance(Node* &head, Node* &curr) {
 		else {
 			Node* uncle = grandparent->getLeft();
 
-			//uncle = red, then onyl recolor
+			//uncle = red, only recolor
 			if (uncle != NULL && uncle->getColor() != 0) {
 				grandparent->setColor(1);
 				parent->setColor(0);
@@ -151,14 +151,14 @@ void balance(Node* &head, Node* &curr) {
 			}
 			else {
 
-				//curr = left child of parent, then rotate right
+				//curr = left child of parent, rotate right
 				if (curr == parent->getLeft()) {
 					rotateRight(head, parent);
 					curr = parent;
 					parent = curr->getParent();
 				}
 
-				//curr = right child of parent, then rotate left
+				//curr = right child of parent, rotate left
 				rotateLeft(head, grandparent);
 
 				//swap color of parent and grandparent
