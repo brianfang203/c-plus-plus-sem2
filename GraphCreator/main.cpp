@@ -52,7 +52,6 @@ int main() {
 		cin.clear();
 		cin.ignore(1000000, '\n');
 
-		//adding vertex
 		if (numInput == 1) {
 			cout << endl << "Enter the character to assign the vertex: " << endl << GREEN << ">> " << RESET;
 			cin >> charInput;
@@ -360,7 +359,11 @@ void findShortest(char startLabel, char  endLabel) {
 
 			current = newCurrent;
 		}
+    		cout << endl << GREEN << "Path: ";
 		for (v = visited.begin(); v != visited.end(); v++) {
+      
+      			//print out path
+      			cout << GREEN << (*v)->getLabel() << " ";
 			if ((*v) -> getLabel() == endLabel) {
 				if ((*v) -> getDistance() > 0) {
 					cout << endl << GREEN << "The distance between " << startLabel << " and " << endLabel << " is: " << (*v) -> getDistance() << endl << RESET;
